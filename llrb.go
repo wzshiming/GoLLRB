@@ -1,19 +1,3 @@
-// Copyright 2010 Petar Maymounkov. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// A Left-Leaning Red-Black (LLRB) implementation of 2-3 balanced binary search trees,
-// based on the following work:
-//
-//   http://www.cs.princeton.edu/~rs/talks/LLRB/08Penn.pdf
-//   http://www.cs.princeton.edu/~rs/talks/LLRB/LLRB.pdf
-//   http://www.cs.princeton.edu/~rs/talks/LLRB/Java/RedBlackBST.java
-//
-//  2-3 trees (and the run-time equivalent 2-3-4 trees) are the de facto standard BST
-//  algoritms found in implementations of Python, Java, and other libraries. The LLRB
-//  implementation of 2-3 trees is a recent improvement on the traditional implementation,
-//  observed and documented by Robert Sedgewick.
-//
 package llrb
 
 // Tree is a Left-Leaning Red-Black (LLRB) implementation of 2-3 trees

@@ -1,7 +1,3 @@
-// Copyright 2010 Petar Maymounkov. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 package llrb
 
 // GetHeight() returns an item in the tree with key @key, and it's height in the tree
