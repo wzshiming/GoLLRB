@@ -8,7 +8,7 @@ import (
 
 func (t *LLRB) String() string {
 	buf := bytes.NewBuffer(nil)
-	fprintNodes(buf, t.root, nil, edgeRoot)
+	fprintNodes(buf, t.root, edges{}, edgeRoot)
 	return buf.String()
 }
 
@@ -39,11 +39,11 @@ func fprintNodes(wr io.Writer, n *Node, pre edges, edge edge) {
 type edges []edge
 
 func (e edges) String() string {
-	buf := bytes.NewBuffer(nil)
+	buf := make([]rune, 0, len(e))
 	for _, v := range e {
-		buf.WriteString(v.String())
+		buf = append(buf, []rune(v.String())...)
 	}
-	return buf.String()
+	return string(buf)
 }
 
 type edge uint
@@ -57,19 +57,18 @@ const (
 	edgeRight
 )
 
+var edgeMap = map[edge]string{
+	edgeSpace: `　`,
+	edgeLink:  `│`,
+	edgeRoot:  `─>`,
+	edgeLeft:  `┌>`,
+	edgeRight: `└>`,
+}
+
 func (e edge) String() string {
-	switch e {
-	case edgeSpace:
-		return `　`
-	case edgeLink:
-		return `│`
-	case edgeRoot:
-		return `─>`
-	case edgeLeft:
-		return `┌>`
-	case edgeRight:
-		return `└>`
-	default:
-		return ``
+	v, ok := edgeMap[e]
+	if ok {
+		return v
 	}
+	return ""
 }
